@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- site metas -->
-    <title>LeatherHoard - Products</title>
+    <title>Products</title>
+      {% load static %}
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -20,36 +21,37 @@
       crossorigin="anonymous"
     />
     <!-- style css -->
-    <link rel="stylesheet" href="../css/products.css" />
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{% static '../css/products.css' %}" />
+    <link rel="stylesheet" href="{% static '../css/style.css' %}">
     <!-- Responsive-->
-    <link rel="stylesheet" href="../css/products-responsive.css" />
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="{% static '../css/products-responsive.css' %}" />
+    <link rel="stylesheet" href="{% static '../css/responsive.css' %}">
     <!-- favicon -->
-    <link rel="icon" href="../images/logo3.png" type="image/gif" />
+    <link rel="icon" href="{% static '../images/logo3.png' %}" type="image/gif" />
     <!-- Tweaks for older IEs-->
     <link
       rel="stylesheet"
       href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
     />
-    <script src="../js/searchSuggestions.js" async> </script>
-    <script src="../js/products.js" defer async></script>
+    <script src="{% static '../js/searchSuggestions.js' %}" async> </script>
+    <script src="{% static '../js/products.js' %}" defer async></script>
   </head>
   <body>
-    <!-- loding modal  -->
-    <div class="loder flex-center">
-        <img src="../images/loading.gif">
+
+  <form method="post" action="/add/"></form>
+  {% csrf_token %}
+  <div class="loder flex-center">
+        <img src="{% static '../images/loading.gif' %}">
     </div>
-    <!-- loding modal  -->
-    <!-- modal for buy  -->
-    <div class="modal-buy" >
-        <div class="cancelBuy">
+
+  <div class="modal-buy" >
+      <div class="cancelBuy">
             <div onclick="cancelModal()"><img src="https://img.icons8.com/office/30/000000/delete-sign.png"/></div>
-        </div>
-        <div class="product">
+      </div>
+           <div class="product">
             <img alt="product image" class="productBuyImage">
             <div class="productBuyDescription"></div>
-        </div>
+           </div>
     </div>
     <!-- modal for buy end. -->
     <!-- header start -->
@@ -61,7 +63,7 @@
                   <div class="full">
                      <div class="center-banner">
                         <div class="logo">
-                           <a href="../index.html"><img src="../images/logo3.png" alt="logo" /></a>
+                           <a href="../index.html"><img src="{% static '../images/logo3.png' %}" alt="logo" /></a>
                         </div>
                      </div>
                   </div>
@@ -82,7 +84,7 @@
                            </li>
 
                            <li class="nav-item active">
-                              <a class="nav-link" href="#">Products</a>
+                              <a class="nav-link" href="{% url 'products' %}">Products</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="../index.html#ContactUs">Contact Us</a>
@@ -99,9 +101,7 @@
                                </div>
                             </div>
                          </li>
-                         <li class="nav-item d_none">
-                            <a class="nav-link" href="register.html">Login</a>
-                         </li>
+
                         </ul>
                      </div>
                   </nav>
@@ -121,14 +121,14 @@
                         <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-bagpacks.png">
+                            <img src="{% static '../images/Leather-bagpacks.png' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather bag | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh. 2783/-</p>
                             </div>
                     </div>
                 </button>
@@ -139,14 +139,14 @@
                         <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-purse.png">
+                            <img src="{% static '../images/Leather-purse.png' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather purse | best Quality pure leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh.2783/-</p>
                             </div>
                     </div>
                 </button>
@@ -164,7 +164,7 @@
                                 <p>Leather Jacket | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh 2783/-</p>
                             </div>
                     </div>
                 </button>
@@ -175,14 +175,14 @@
                         <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-shoes.png">
+                            <img src="{% static '../images/Leather-shoes.png' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather shoes | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh. 2783/-</p>
                             </div>
                     </div>
                 </button>
@@ -193,14 +193,14 @@
                     <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-caps.jpeg">
+                            <img src="{% static '../images/Leather-caps.jpeg' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather bag | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh. 2783/-</p>
                             </div>
                     </div>
                 </button>
@@ -211,14 +211,14 @@
                         <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-wallet.jpeg">
+                            <img src="{% static '../images/Leather-wallet.jpeg' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather walllet | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh. 2783/-</p>
                             </div>
                     </div>
                 </button>
@@ -229,14 +229,14 @@
                         <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-belt.png">
+                            <img src="{% static '../images/Leather-belt.png' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather bag | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh 2783/-</p>
                             </div>
                         </div>
                 </button>
@@ -247,14 +247,14 @@
                         <div class="product_img">
                             <i><img src="https://img.icons8.com/cotton/64/000000/hearts---v1.png"/></i>
                             <!-- product img                             -->
-                            <img src="../images/Leather-bags.png">
+                            <img src="{% static '../images/Leather-bags.png' %}">
                         </div>
                         <div class="product_details">
                             <div class="text">
                                 <p>Leather bag | best Quality pure Leather</p>
                             </div>
                             <div class="price">
-                                <p>Rs 2783/-</p>
+                                <p>Ksh 2783/-</p>
                             </div>
                         </div>
                 </button>
@@ -269,7 +269,7 @@
        <div class="container">
           <div class="row">
              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <img class="logo1" src="../images/logo3.png" alt="#" />
+                <img class="logo1" src="{% static '../images/logo3.png' %}" alt="#" />
                 <ul class="social_icon">
                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -313,13 +313,14 @@
           <div class="container">
              <div class="row">
                 <div class="col-md-12">
-                   <p>Copyright © 2022 LeatherHoard, Inc. All rights reserved.</p>
+                   <p>Copyright © 2023 ProdExChange, Inc. All rights reserved.</p>
                 </div>
              </div>
           </div>
        </div>
     </div>
- </footer>
+
+   </footer>
  <!-- end footer -->
   </body>
 </html>

@@ -169,3 +169,8 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+document.getElementById(Signin).addEventListener('click', function (event) {
+  event.preventDefault();
+  window.location.href = 'template/index.html'
+})
